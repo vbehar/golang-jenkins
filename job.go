@@ -39,6 +39,11 @@ type ScmChangeSet struct {
 	Items []ChangeSetItem `json:"items"`
 }
 
+type Culprit struct {
+	AbsoluteUrl string `json:"absoluteUrl"`
+	FullName    string `json:"fullName"`
+}
+
 type Build struct {
 	Id     string `json:"id"`
 	Number int    `json:"number"`
@@ -58,7 +63,8 @@ type Build struct {
 	Artifacts []Artifact `json:"artifacts"`
 	Actions   []Action   `json:"actions"`
 
-	ChangeSet ScmChangeSet `json:"changeSet"`
+	ChangeSet ScmChangeSet `json:"changeSets"`
+	Culprits  []Culprit    `json:"culprits"`
 }
 
 type UpstreamCause struct {
